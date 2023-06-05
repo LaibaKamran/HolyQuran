@@ -6424,14 +6424,28 @@ public class MainActivity2 extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int ayatnum = Integer.parseInt(editText.getText().toString()) ;
+                String input = editText.getText().toString();
+                int ayatnum = 0;
+
+                if (input.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Field is empty", Toast.LENGTH_SHORT).show();
+                } else {
+                    ayatnum = Integer.parseInt(input);
+
+                }
 
                 int total = ayatEnd - ayatStart;
+
 
                 if(ayatnum >= total){
                     String count =  "Surah " + surah + " has max " + (total-1) + " ayats.";
                     Toast.makeText(MainActivity2.this, count, Toast.LENGTH_SHORT).show();
                 }
+
+                else if(ayatnum==0){
+                    Toast.makeText(getApplicationContext(), "Field is empty", Toast.LENGTH_SHORT).show();
+                }
+
                 else{
 
                     Intent in = new Intent(MainActivity2.this , MainActivity3.class);
