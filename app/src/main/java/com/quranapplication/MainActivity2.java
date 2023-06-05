@@ -6429,7 +6429,7 @@ public class MainActivity2 extends AppCompatActivity {
                 int total = ayatEnd - ayatStart;
 
                 if(ayatnum >= total){
-                    String count =  "Surah " + surah + " has max " + (total) + " ayats.";
+                    String count =  "Surah " + surah + " has max " + (total-1) + " ayats.";
                     Toast.makeText(MainActivity2.this, count, Toast.LENGTH_SHORT).show();
                 }
                 else{
