@@ -250,6 +250,35 @@ public class MainActivity extends AppCompatActivity {
     ListView LV;
     ArrayList<String> AL = new ArrayList<String>();
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
+        LV = findViewById(R.id.listView);
+
+        for (int i = 0 ;  i < 114 ; i++){
+            AL.add(englishSurahNames[i]);
+        }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this , android.R.layout.simple_list_item_1 , AL);
+
+        LV.setAdapter(arrayAdapter);
+
+
+        LV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String f = AL.get(position);
+
+
+                Intent intent = new Intent(MainActivity.this , MainActivity2.class);
+                intent.putExtra("surat" , f);
+                intent.putExtra("ayatStart" , SSP[position]);
+                intent.putExtra("ayatEnd" , (SSP[position + 1]  ) );
+                startActivity(intent);
+            }
+        });
 
     }
+}
