@@ -273,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 Intent intent = new Intent(MainActivity.this , MainActivity2.class);
-                intent.putExtra("surat" , f);
+                intent.putExtra("surah" , f);
                 intent.putExtra("ayatStart" , SSP[position]);
                 intent.putExtra("ayatEnd" , (SSP[position + 1]  ) );
                 startActivity(intent);
